@@ -1,35 +1,53 @@
 @charset "UTF-8";
 
-*{
-    margin: 0px;
-    padding: 0px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --cor01: #1EDBEC;
 }
-body{
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     background-color: #1EDBEC;
+    font-family: 'Montserrat', sans-serif;
 }
-header{
-    padding: 0px 0px 0px 20px;
-}
-header > img{
-    max-width: 150px;
-}
+
 .header {
     background-color: #1EDBEC;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
-}
-li{
-    padding: 10px;
-}
-li:hover{
-    background-color: #0D3F99;
+    padding:0px 10px;
 }
 
+.header > img {
+    max-width: 150px;
+}
+ul {
+    list-style: none;
+}
+
+.navbar.active {
+    display: block; /* Mostra o menu */
+    position: absolute; /* Define a posição do menu */
+    top: 100%; /* Ajusta a posição vertical conforme necessário */
+    left: 0; /* Ajusta a posição horizontal conforme necessário */
+    background-color: #0b174a; /* Cor de fundo do menu ativo */
+    z-index: 1; /* Ajusta a ordem de empilhamento para estar acima de outros elementos, se necessário */
+    /* Outros estilos, como margens, preenchimento, cores de texto, etc. */
+}
+.navbar.active .navbar-menu {
+    display: flex; /* Alinha os itens do menu horizontalmente */
+    flex-direction: column; /* Organiza os itens do menu em coluna */
+    
+}
 .menu-icon {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
 }
@@ -41,39 +59,28 @@ li:hover{
     margin: 3px 0;
 }
 
-.navbar {
-    background-color: #1EDBEC;
+.navbar-menu {
+    display: block;
+    margin: 0px 250px;
+    text-decoration: none;
+    background-color: #0b174a;
     color: white;
-    display: none;
     text-align: center;
+    padding: 10px 0px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu {
-    list-style: none;
-    padding: 0;
-}
-
-.menu li {
-    margin: 15px 0;
-}
-
-.menu a {
-    font-family: Arial, Helvetica, sans-serif;
+.navbar-menu a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Media Query para telas menores */
-@media screen and (max-width: 768px) {
-    .menu-icon {
-        display: flex;
-    }
-
-    .navbar.active {
-        display: block;
-    }
+.navbar-menu a:hover {
+    color: #1EDBEC;
 }
+
 
 /* Media Query para telas maiores */
 @media screen and (min-width: 769px) {
@@ -81,37 +88,28 @@ li:hover{
         display: none;
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #333;
-    }
-
-    .logo img {
-        width: 100px; /* Ajuste conforme necessário */
-    }
-
     .navbar {
         display: flex;
-        align-items: center;
     }
 
-    .menu {
-        list-style: none;
+    .navbar-menu {
         display: flex;
-        margin: 0;
-        padding: 0;
+        align-items: center;
+        margin-right: 20px;
     }
 
-    .menu li {
+    .navbar-menu li {
         margin: 0 15px;
     }
 
-    .menu a {
+    .navbar-menu a {
         color: white;
         text-decoration: none;
         font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+        color: #0b174a;
     }
 }

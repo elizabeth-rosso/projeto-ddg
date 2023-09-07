@@ -1,6 +1,10 @@
-const menuIcon = document.getElementById("menu-icon");
-const navbar = document.getElementById("navbar");
+const menuIcon = document.querySelector(".menu-icon");
+const navbar = document.querySelector(".navbar");
 
 menuIcon.addEventListener("click", () => {
-    navbar.classList.toggle("active");
+    if (navbar.classList.contains("active")) {
+        navbar.classList.remove("active");
+    } else {
+        navbar.classList.add("active");
+    }
 });
